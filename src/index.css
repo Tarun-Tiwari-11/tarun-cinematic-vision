@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Brittany';
+  src: url('/assets/fonts/Brittany.woff2') format('woff2'),
+       url('/assets/fonts/Brittany.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Phatt';
+  src: url('/assets/fonts/Phatt.woff2') format('woff2'),
+       url('/assets/fonts/Phatt.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Horizon';
+  src: url('/assets/fonts/Horizon.woff2') format('woff2'),
+       url('/assets/fonts/Horizon.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Moontime';
+  src: url('/assets/fonts/Moontime.woff2') format('woff2'),
+       url('/assets/fonts/Moontime.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply h-full;
+    @apply overflow-hidden;
+  }
+
+  body {
+    @apply h-full;
+    @apply m-0;
+    @apply p-0;
+    @apply overflow-hidden;
+    @apply font-brittany;
+    @apply text-black;
+    @apply bg-offWhite;
+  }
+
+  #root {
+    @apply h-full;
+    @apply w-full;
+    @apply overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .section-container {
+    @apply h-screen;
+    @apply w-full;
+    @apply flex-shrink-0;
+    @apply overflow-hidden;
+    @apply relative;
+  }
+
+  .content-wrapper {
+    @apply h-full;
+    @apply w-full;
+    @apply overflow-hidden;
+    @apply relative;
+  }
+
+  /* Font Utility Classes */
+  .font-brittany {
+    font-family: 'Brittany', system-ui, sans-serif;
+  }
+
+  .font-phatt {
+    font-family: 'Phatt', system-ui, sans-serif;
+  }
+
+  .font-horizon {
+    font-family: 'Horizon', system-ui, sans-serif;
+  }
+
+  .font-moontime {
+    font-family: 'Moontime', system-ui, sans-serif;
+  }
+}
