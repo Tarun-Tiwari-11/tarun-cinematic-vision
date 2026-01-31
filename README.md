@@ -1,61 +1,52 @@
-# Morphyx Lab Portfolio
+# Morphyx Lab – Video Editor Portfolio
 
-A production-grade single-page scroll portfolio website built with React, Vite, Tailwind CSS, Framer Motion, and Lenis.
+Professional video editor portfolio site. Built with **React** and **Vite**.
 
-## Tech Stack
+## Project structure
 
-- **React 18** - UI library
-- **Vite** - Build tool and dev server
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **Lenis** - Smooth scrolling
+```
+morphyx_lab/
+├── index.html              # Entry HTML
+├── package.json
+├── vite.config.js
+├── src/
+│   ├── main.jsx            # React entry
+│   ├── App.jsx             # Main app + sections
+│   ├── index.css            # Global styles
+│   └── components/
+│       ├── Navbar.jsx       # Fixed top navigation
+│       ├── HeroSection.jsx  # Hero + CTA
+│       ├── AboutSection.jsx # Bio, skills, tools
+│       ├── WorkSection.jsx  # Reel + project grid
+│       ├── ServicesSection.jsx # What you offer
+│       └── ContactSection.jsx  # Email + social links
+└── public/                 # Static assets (fonts, images, videos)
+```
 
-## Architecture
+## Sections
 
-- Single-page scroll website (no routing)
-- Each section is exactly 100vh
-- Section containers never resize based on content
-- Content lives inside controlled layout containers
-- Overflow is handled safely
+1. **Hero** – Headline, short tagline, “View Reel” / “Get in Touch”
+2. **About** – Your story, tools, skills/specialties
+3. **Work** – Main showreel embed + project cards (with video thumbnails)
+4. **Services** – Editing, color grading, motion graphics, reels, etc.
+5. **Contact** – Email and social (LinkedIn, Vimeo, Instagram)
 
-## Getting Started
-
-### Install Dependencies
+## Run locally
 
 ```bash
 npm install
-```
-
-### Development
-
-```bash
 npm run dev
 ```
 
-### Build
+Then open the URL shown in the terminal (e.g. http://localhost:5173).
+
+## Build for production
 
 ```bash
 npm run build
-```
-
-### Preview Production Build
-
-```bash
 npm run preview
 ```
 
-## Project Structure
+---
 
-```
-src/
-  ├── App.jsx          # Main app component with section placeholders
-  ├── main.jsx         # Entry point with Lenis initialization
-  └── index.css        # Global styles with Tailwind directives
-```
-
-## Notes
-
-- Lenis is installed and initialized but not yet animated
-- Framer Motion is installed and ready to use
-- All sections are set up as 100vh containers
-- Ready for content and animations to be added
+Next step: answer the design questions so we can style and refine the site to match your vision.
