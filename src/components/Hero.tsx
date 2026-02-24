@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Play, Sparkles, Zap } from "lucide-react";
+import { Play, Sparkles, Instagram, Youtube } from "lucide-react";
 import heroImage from "@/assets/tarun-hero.jpeg";
+import logo from "@/assets/logo.png";
+
 import capCutIcon from "@/assets/icons/capcut.png";
 import afterEffectsIcon from "@/assets/icons/after-effects.png";
 import premiereProIcon from "@/assets/icons/premiere-pro.png";
@@ -14,18 +15,17 @@ const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [currentWord, setCurrentWord] = useState(0);
   const [hoveredIcon, setHoveredIcon] = useState<number | null>(null);
-  const [orbitSpeed, setOrbitSpeed] = useState(1);
+  const [orbitSpeed] = useState(1);
 
   const dynamicWords = ["CINEMATIC", "CREATIVE", "DYNAMIC", "STUNNING"];
 
-  // Video editing tools for orbit animation
   const tools = [
-    { icon: capCutIcon, name: "CapCut", tooltip: "Edited in CapCut", color: "#FF6B6B" },
-    { icon: afterEffectsIcon, name: "After Effects", tooltip: "Crafted in After Effects", color: "#9D4EDD" },
-    { icon: premiereProIcon, name: "Premiere Pro", tooltip: "Edited in Premiere Pro", color: "#00D4FF" },
-    { icon: davinciResolveIcon, name: "DaVinci Resolve", tooltip: "Graded in DaVinci Resolve", color: "#FF8500" },
-    { icon: timelineIcon, name: "Timeline", tooltip: "Timeline Magic", color: "#C9A66B" },
-    { icon: effectsIcon, name: "Effects", tooltip: "Visual Effects", color: "#2ABD8B" },
+    { icon: capCutIcon, name: "CapCut", tooltip: "Edited in CapCut" },
+    { icon: afterEffectsIcon, name: "After Effects", tooltip: "Crafted in After Effects" },
+    { icon: premiereProIcon, name: "Premiere Pro", tooltip: "Edited in Premiere Pro" },
+    { icon: davinciResolveIcon, name: "DaVinci Resolve", tooltip: "Graded in DaVinci Resolve" },
+    { icon: timelineIcon, name: "Timeline", tooltip: "Timeline Magic" },
+    { icon: effectsIcon, name: "Effects", tooltip: "Visual Effects" },
   ];
 
   useEffect(() => {
@@ -47,47 +47,88 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-
-
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center">
-      {/* Animated background particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-primary/30 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`,
-            }}
-          />
-        ))}
+
+      {/* Floating Logo Top Left */}
+      <div className="absolute top-8 left-8 z-30">
+        <img
+          src={logo}
+          alt="Morphyx Lab Logo"
+          className="w-16 md:w-20 drop-shadow-[0_15px_35px_rgba(0,0,0,0.5)] animate-float-vertical -rotate-12"
+        />
       </div>
 
-      {/* Hero background with portrait positioning */}
+      {/* Badge - Top Right */}
+      <div className="absolute top-10 right-10 z-40">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
+          <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+          <span className="text-sm font-medium text-primary">
+            Available for Projects
+          </span>
+        </div>
+      </div>
+
+      {/* Social Media Icons - Bottom Right */}
+      <div className="absolute bottom-16 right-24 z-30 flex flex-row gap-3">
+        <a
+          href="https://www.instagram.com/morphyx_lab/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 rounded-full bg-background/40 backdrop-blur-md border border-primary/20 flex items-center justify-center hover:bg-primary/20 hover:border-primary/50 transition-all duration-300 hover:scale-110 group"
+        >
+          <Instagram className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
+        </a>
+        <a
+          href="https://www.youtube.com/@morphyx_lab"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 rounded-full bg-background/40 backdrop-blur-md border border-primary/20 flex items-center justify-center hover:bg-primary/20 hover:border-primary/50 transition-all duration-300 hover:scale-110 group"
+        >
+          <Youtube className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
+        </a>
+        <a
+          href="https://discord.com/users/1308490559094132811"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 rounded-full bg-background/40 backdrop-blur-md border border-primary/20 flex items-center justify-center hover:bg-primary/20 hover:border-primary/50 transition-all duration-300 hover:scale-110 group"
+        >
+          <svg className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+        </a>
+        <a
+          href="https://www.youtube.com/@morphyx_lab"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 rounded-full bg-background/40 backdrop-blur-md border border-primary/20 flex items-center justify-center hover:bg-primary/20 hover:border-primary/50 transition-all duration-300 hover:scale-110 group"
+        >
+          <svg className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547l-.8 3.747c1.824.07 3.48.632 4.674 1.488c.308-.309.73-.491 1.207-.491c.968 0 1.754.786 1.754 1.754c0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87c-3.874 0-7.004-2.176-7.004-4.87c0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754c.463 0 .898.196 1.207.49c1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197a.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248c.687 0 1.248-.561 1.248-1.249c0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25c0 .687.561 1.248 1.249 1.248c.688 0 1.249-.561 1.249-1.249c0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094a.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913c.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463a.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73c-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+          </svg>
+        </a>
+      </div>
+
+      {/* Background Image */}
       <div
-        className={`absolute inset-0 transition-all duration-1000 ease-out ${isLoaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'}`}
+        className={`absolute inset-0 transition-all duration-1000 ease-out ${
+          isLoaded ? "scale-100 opacity-100" : "scale-110 opacity-0"
+        }`}
         style={{
           transform: `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px) scale(1.02)`,
         }}
       >
         <img
           src={heroImage}
-          alt="Tarun Tiwari - Video Editor"
+          alt="Morphyx Lab"
           className="w-full h-full object-cover object-right"
         />
       </div>
 
-      {/* Creative Orbit Animation - positioned below text, above hand */}
-      <div className={`absolute left-40 top-2/4 w-80 h-80 transition-all duration-1000 delay-1500 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
-
-        {/* Orbit container */}
+      {/* Orbit Animation */}
+      <div className={`absolute left-48 top-2/4 w-80 h-80 transition-all duration-1000 delay-1500 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
         <div className="relative w-full h-full flex items-center justify-center">
 
-          {/* Simple Circular Orbit */}
           <div
             className="absolute inset-0 w-64 h-64 m-auto"
             style={{
@@ -97,46 +138,46 @@ const Hero = () => {
             {tools.map((tool, index) => {
               const angle = (index * 360) / tools.length;
               const isHovered = hoveredIcon === index;
-              
+
               return (
                 <div
                   key={index}
                   className="absolute w-12 h-12 flex items-center justify-center cursor-pointer group"
                   style={{
-                    left: '50%',
-                    top: '50%',
+                    left: "50%",
+                    top: "50%",
                     transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-90px) rotate(-${angle}deg)`,
-                    zIndex: 20,
                   }}
                   onMouseEnter={() => setHoveredIcon(index)}
                   onMouseLeave={() => setHoveredIcon(null)}
                 >
-                  {/* Simple glow halo */}
                   <div
-                    className={`absolute inset-0 rounded-full transition-all duration-500 ${isHovered ? 'scale-150' : 'scale-100'}`}
+                    className={`absolute inset-0 rounded-full transition-all duration-500 ${isHovered ? "scale-150" : "scale-100"}`}
                     style={{
-                      background: `radial-gradient(circle, rgba(42, 189, 139, 0.3) 0%, rgba(201, 166, 107, 0.2) 50%, transparent 70%)`,
+                      background: `radial-gradient(circle, rgba(42,189,139,0.3) 0%, rgba(201,166,107,0.2) 50%, transparent 70%)`,
                       filter: `blur(8px)`,
                     }}
                   />
 
-                  {/* Icon container */}
                   <div className="relative w-10 h-10 flex items-center justify-center">
                     <img
                       src={tool.icon}
                       alt={tool.name}
-                      className="w-full h-full transition-all duration-300 object-contain"
+                      className={`w-full h-full transition-all duration-300 object-contain ${
+                        isHovered 
+                          ? 'drop-shadow-[0_0_20px_rgba(201,166,107,0.8)] brightness-125' 
+                          : 'drop-shadow-[0_0_12px_rgba(201,166,107,0.5)] brightness-110'
+                      }`}
                       style={{
-                        filter: isHovered
-                          ? `brightness(1.3) contrast(1.2) drop-shadow(0 0 12px rgba(42, 189, 139, 0.8))`
-                          : 'brightness(1.1) contrast(1.1)',
+                        filter: isHovered 
+                          ? 'drop-shadow(0 0 20px rgba(201,166,107,0.8)) drop-shadow(0 0 10px rgba(42,189,139,0.6)) brightness(1.25) contrast(1.1)' 
+                          : 'drop-shadow(0 0 12px rgba(201,166,107,0.5)) drop-shadow(0 4px 8px rgba(0,0,0,0.4)) brightness(1.1) contrast(1.05)'
                       }}
                     />
                   </div>
 
-                  {/* Simple tooltip */}
                   {isHovered && (
-                    <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-background/90 border border-primary/30 rounded-lg text-xs text-primary whitespace-nowrap animate-fade-up z-50">
+                    <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-background/90 border border-primary/30 rounded-lg text-xs text-primary whitespace-nowrap z-50">
                       {tool.tooltip}
                     </div>
                   )}
@@ -144,192 +185,75 @@ const Hero = () => {
               );
             })}
           </div>
-
-          {/* Central energy core */ }
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div
-                  className="w-4 h-4 rounded-full bg-primary/30 animate-pulse-energy"
-                  style={{
-                    boxShadow: '0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--secondary) / 0.3)',
-                  }}
-                />
-              </div>
-
-              {/* Elliptical orbit trail */ }
-              <div
-                className="absolute inset-0 border border-primary/10 animate-pulse"
-                style={{
-                  width: '180px',
-                  height: '60px',
-                  margin: 'auto',
-                  borderRadius: '50%',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                }}
-              />
-
-              {/* Floating energy particles */ }
-              {
-                [...Array(20)].map((_, i) => {
-                  const particleAngle = (i * 18 * Math.PI) / 180;
-                  const px = Math.cos(particleAngle) * 100;
-                  const py = Math.sin(particleAngle) * 60;
-                  const pz = Math.sin(particleAngle) * 20;
-
-                  return (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 rounded-full animate-float-gentle"
-                      style={{
-                        left: `${160 + px}px`,
-                        top: `${160 + py}px`,
-                        background: `linear-gradient(45deg, #2ABD8B, #C9A66B)`,
-                        opacity: 0.6,
-                        animationDelay: `${i * 0.3}s`,
-                        animationDuration: `${4 + Math.random() * 2}s`,
-                        transform: `translateZ(${pz}px)`,
-                      }}
-                    />
-                  );
-                })
-              }
         </div>
+      </div>
 
-          {/* Ambient lighting effect reflecting on hand area */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: `radial-gradient(circle at 50% 60%, hsl(var(--primary) / 0.15) 0%, transparent 60%)`,
-            }}
-          />
-        </div>
+      {/* Gradient Overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `
+          linear-gradient(90deg, hsl(var(--background-dark) / 0.85) 0%, 
+          hsl(var(--background-dark) / 0.4) 50%, transparent 100%)
+        `,
+        }}
+      />
 
-        {/* Cinematic gradient overlay for text readability */}
-        <div
-          className="absolute inset-0 pointer-events-none transition-all duration-1000"
-          style={{
-            background: `
-            linear-gradient(90deg, hsl(var(--background-dark) / 0.85) 0%, hsl(var(--background-dark) / 0.4) 50%, transparent 100%),
-            linear-gradient(180deg, transparent 0%, hsl(var(--background-dark) / 0.3) 100%)
-          `,
-          }}
-        />
+      {/* Content */}
+      <div className="relative z-20 w-full h-full flex flex-col justify-between px-8">
 
-        {/* Enhanced film grain with animation */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay animate-pulse"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }}
-        />
+        <div className="pt-32 max-w-4xl">
 
-        {/* Content Container - Repositioned Layout */}
-        <div className="relative z-10 w-full h-full flex flex-col justify-between px-8">
-
-          {/* Upper Section - Main Content (Red doodle area) */}
-          <div className="pt-16 max-w-4xl">
-            <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
-
-              {/* Floating badge */}
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6 transition-all duration-700 delay-500 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
-                <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-                <span className="text-sm font-medium text-primary">Available for Projects</span>
-              </div>
-
-              {/* Main Heading with signature overlay style */}
-              <h1 className="relative text-7xl md:text-9xl font-black mb-6 leading-[0.85] tracking-wider uppercase">
-                {/* Background block text */}
-                <div className={`transition-all duration-700 delay-700 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
-                  <span className="block text-foreground/20 font-black" style={{ fontFamily: 'Impact, "Arial Black", sans-serif' }}>
-                    TARUN TIWARI
-                  </span>
-                </div>
-
-                {/* Signature overlay */}
-                <div
-                  className={`absolute inset-0 flex items-center justify-center transition-all duration-700 delay-900 ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'}`}
-                  style={{
-                    fontFamily: '"Brush Script MT", "Lucida Handwriting", "Segoe Script", "Monotype Corsiva", cursive',
-                    fontSize: '0.4em',
-                    transform: 'rotate(-2deg) translateY(-8px) translateX(15px)',
-                    letterSpacing: '0.05em',
-                    fontWeight: '500',
-                  }}
-                >
-                  <span
-                    style={{
-                      color: 'hsl(var(--primary))',
-                      textShadow: '1px 1px 3px rgba(0,0,0,0.3)',
-                      filter: 'drop-shadow(0 0 6px hsl(var(--primary) / 0.4))',
-                      fontStyle: 'normal',
-                    }}
-                  >
-                    Tarun Tiwari
-                  </span>
-                </div>
-              </h1>
-
-              {/* Professional titles */}
-              <div className={`mb-4 transition-all duration-700 delay-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-                <p className="text-lg text-primary/70 tracking-[0.2em]">
-                  Video Editor • Visual Storyteller • Motion Designer
-                </p>
-              </div>
-
-              {/* Dynamic subtitle with rotating words */}
-              <div className={`mb-8 transition-all duration-700 delay-1100 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-                <p className="text-2xl md:text-3xl font-light tracking-[0.15em] text-foreground/90">
-                  Creating{" "}
-                  <span
-                    className="inline-block min-w-[200px] text-left transition-all duration-500"
-                    style={{
-                      background: 'linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    {dynamicWords[currentWord]} Visuals
-                  </span>
-                </p>
-              </div>
-
-            </div>
+          {/* Heading */}
+          <div className="mb-6">
+            <h1 className="text-6xl md:text-8xl font-bold leading-none">
+              <span className="bg-gradient-to-r from-foreground via-primary-glow to-foreground bg-clip-text text-transparent">
+                MORPHYX
+              </span>
+            </h1>
+            <h1 className="text-6xl md:text-8xl font-bold leading-none -mt-2">
+              <span className="bg-gradient-to-r from-foreground via-primary-glow to-foreground bg-clip-text text-transparent">
+                LAB
+              </span>
+            </h1>
           </div>
 
-          {/* Lower Section - CTA Buttons (Green doodle area) */}
-          <div className="pb-24 flex justify-end">
-            <div className={`flex gap-6 flex-wrap transition-all duration-700 delay-1300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-              <Button
-                size="lg"
-                className="group px-8 py-6 text-base font-medium bg-primary hover:bg-primary-glow text-background transition-all duration-300 hover:scale-105"
-                onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                View My Work
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="group px-8 py-6 text-base font-medium border-2 border-primary/40 text-foreground hover:bg-primary/10 hover:border-primary transition-all duration-300 hover:scale-105"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                <Zap className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-                Let's Collaborate
-              </Button>
-            </div>
-          </div>
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+            Creating{" "}
+            <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent font-semibold">
+              {dynamicWords[currentWord]} Visuals
+            </span>
+          </p>
 
         </div>
 
-        {/* Enhanced Scroll Indicator */}
-        <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 transition-all duration-700 delay-1700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-          <div className="flex flex-col items-center gap-2 animate-bounce">
-            <span className="text-xs text-primary/60 uppercase tracking-wider">Scroll</span>
-            <div className="w-6 h-10 border-2 border-primary/40 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-primary/60 rounded-full mt-2 animate-pulse"></div>
+        {/* CTA - Bottom Center */}
+        <div className="pb-16 flex justify-center">
+          {/* View Our Work Button */}
+          <a
+            href="#work"
+            className="group relative px-8 py-3 rounded-full overflow-hidden transition-all duration-500 hover:scale-105"
+          >
+            {/* Border gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary-glow to-primary bg-[length:200%_100%] animate-gradient rounded-full p-[2px]">
+              <div className="w-full h-full bg-background rounded-full" />
             </div>
-          </div>
+            
+            {/* Button content */}
+            <div className="relative flex items-center gap-2 font-semibold text-base">
+              <Play className="w-4 h-4 text-primary group-hover:scale-110 transition-transform duration-300" />
+              <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                View Our Work
+              </span>
+            </div>
+            
+            {/* Shine effect */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+          </a>
         </div>
+
+      </div>
     </section>
   );
 };
