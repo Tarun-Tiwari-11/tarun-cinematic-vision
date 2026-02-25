@@ -40,7 +40,7 @@ const About = () => {
         {/* About Text */}
         <div className="mb-16 text-center animate-fade-up">
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            I'm <span className="text-primary font-semibold">Tarun Tiwari</span>, a video editor who believes 
+            I'm <span className="text-primary font-semibold">Morphyx</span>, a video editor who believes 
             every frame tells a story. I transform raw footage into compelling visual narratives 
             that captivate, inspire, and leave lasting impressions.
           </p>

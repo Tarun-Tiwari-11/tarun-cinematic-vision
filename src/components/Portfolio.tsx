@@ -14,34 +14,10 @@ const projects = [
     category: "AI Hybrid",
   },
   {
-    title: "Travel Montage",
-    description: "A visually immersive edit featuring travel clips stitched with rhythmic beat-syncing and vibrant color grading. \n\nFocus: Flow, pacing, natural transitions, and emotional energy through visuals. \n\n🎯 Highlights your ability to capture vibe, movement, and energy.",
-    videoId: "dQw4w9WgXcQ",
-    category: "Travel",
-  },
-  {
-    title: "Car Edit",
-    description: "A high-energy automotive showcase focusing on macro detailing, motion blur, reflections, and engine sound design. \n\nFocus: Speed ramps, color tone contrast, and kinetic rhythm. \n\n🎯 Displays your commercial edit skills and precision cutting.",
-    videoId: "dQw4w9WgXcQ",
-    category: "Automotive",
-  },
-  {
     title: "Vertical Podcast with B-Roll",
     description: "A short-form talking-head clip edited for Instagram or YouTube Shorts with dynamic captions, zooms, and supportive B-rolls. \n\nFocus: Retention pacing, engaging text animations, and sharp punch edits. \n\n🎯 Proves your mastery of vertical content and social-style storytelling.",
     videoId: "dQw4w9WgXcQ",
     category: "Podcast",
-  },
-  {
-    title: "Dan Martell–Style Educational Clip",
-    description: "A business insight or motivational short inspired by creators like Dan Martell or Alex Hormozi. \n\nFocus: Branded captions, bold typography, and momentum-based pacing. \n\n🎯 Shows how you can blend value-driven scripting with high-performance editing.",
-    videoId: "dQw4w9WgXcQ",
-    category: "Educational",
-  },
-  {
-    title: "Dhruv Rathee–Style Explainer",
-    description: "A journalistic explainer (2–3 minutes) combining AI narration, research visuals, archival footage, maps, and motion infographics. \n\nFocus: Narrative depth, storytelling rhythm, and editorial pacing. \n\n🎯 Demonstrates documentary-level editing and smart, informative visuals.",
-    videoId: "dQw4w9WgXcQ",
-    category: "Documentary",
   },
   {
     title: "Animated Storytelling Explainer",
@@ -54,6 +30,30 @@ const projects = [
     description: "A cinematic short film blending human emotion and scenic visuals — polished with color grading, sound layering, and smooth transitions. \n\nFocus: Tone, mood building, storytelling through light and sound. \n\n🎯 Perfect to showcase your mastery in cinematic editing and color aesthetics.",
     videoId: "dQw4w9WgXcQ",
     category: "Cinematic",
+  },
+  /* {
+    title: "Travel Montage",
+    description: "A visually immersive edit featuring travel clips stitched with rhythmic beat-syncing and vibrant color grading. \n\nFocus: Flow, pacing, natural transitions, and emotional energy through visuals. \n\n🎯 Highlights your ability to capture vibe, movement, and energy.",
+    videoId: "dQw4w9WgXcQ",
+    category: "Travel",
+  },
+  {
+    title: "Car Edit",
+    description: "A high-energy automotive showcase focusing on macro detailing, motion blur, reflections, and engine sound design. \n\nFocus: Speed ramps, color tone contrast, and kinetic rhythm. \n\n🎯 Displays your commercial edit skills and precision cutting.",
+    videoId: "dQw4w9WgXcQ",
+    category: "Automotive",
+  },
+  {
+    title: "Dan Martell–Style Educational Clip",
+    description: "A business insight or motivational short inspired by creators like Dan Martell or Alex Hormozi. \n\nFocus: Branded captions, bold typography, and momentum-based pacing. \n\n🎯 Shows how you can blend value-driven scripting with high-performance editing.",
+    videoId: "dQw4w9WgXcQ",
+    category: "Educational",
+  },
+  {
+    title: "Dhruv Rathee–Style Explainer",
+    description: "A journalistic explainer (2–3 minutes) combining AI narration, research visuals, archival footage, maps, and motion infographics. \n\nFocus: Narrative depth, storytelling rhythm, and editorial pacing. \n\n🎯 Demonstrates documentary-level editing and smart, informative visuals.",
+    videoId: "dQw4w9WgXcQ",
+    category: "Documentary",
   },
   {
     title: "Product Promotional Video - Digital Brand",
@@ -72,7 +72,7 @@ const projects = [
     description: "Concept-based tech product showcase combining innovation narrative with sleek visual design. \n\nFocus: Modern aesthetics, feature highlighting, and tech-forward pacing. \n\n🎯 Shows ability to adapt to cutting-edge brand requirements.",
     videoId: "dQw4w9WgXcQ",
     category: "Tech",
-  },
+  }, */
 ];
 
 const Portfolio = () => {
@@ -107,9 +107,9 @@ const Portfolio = () => {
         </div>
 
         <div className="space-y-8">
-          {/* First 2 rows - 5 cards total */}
+          {/* First row - 3 vertical cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.slice(0, 5).map((project, index) => {
+            {projects.slice(0, 3).map((project, index) => {
               const isExpanded = expandedCards.has(index);
               return (
                 <div
@@ -175,10 +175,10 @@ const Portfolio = () => {
             })}
           </div>
 
-          {/* Next 2 rows - 2 cards each (cards 6-9) */}
+          {/* Second row - 2 horizontal cards (Animation and Cinematic) */}
           <div className="grid md:grid-cols-2 gap-8">
-            {projects.slice(5, 7).map((project, index) => {
-              const cardIndex = index + 5;
+            {projects.slice(3, 5).map((project, index) => {
+              const cardIndex = index + 3;
               const isExpanded = expandedCards.has(cardIndex);
               return (
                 <div
