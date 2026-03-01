@@ -22,13 +22,13 @@ const About = () => {
           <div className="relative rounded-2xl overflow-hidden border-2 border-primary/40 group">
             <div className="aspect-[16/9] bg-gradient-to-br from-card via-background-dark to-card relative">
               {/* YouTube Embed - Optimized for Portfolio */}
+              
               <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID&controls=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3"
-                title="Tarun Tiwari - Video Editor Showreel"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
+              src="https://player.vimeo.com/video/1160482861?autoplay=1&muted=0&loop=1&title=0&byline=0&portrait=0"
+              className="w-full h-full border-0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              title="Tarun Tiwari - Video Editor Showreel"
               />
               
               {/* Subtle overlay for integration */}

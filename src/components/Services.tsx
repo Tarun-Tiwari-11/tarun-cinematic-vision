@@ -14,54 +14,54 @@ const services = [
       "Dynamic caption integration and beat-syncing"
     ],
   },
-  {
-    icon: Youtube,
-    title: "YouTube Long-form Editing",
-    description: "Professional storytelling for creators who value pacing, retention, and visual flow.",
-    features: [
-      "Intros/outros and branding consistency",
-      "B-roll and stock footage integration",
-      "Smooth pacing and transitions",
-      "Color grading and sound balancing",
-      "Visual storytelling and thumbnail framing"
-    ],
-  },
-  {
-    icon: FileVideo,
-    title: "Documentary & Case Study Editing",
-    description: "In-depth storytelling for business, social, or investigative topics with a cinematic, journalistic tone.",
-    features: [
-      "Interview or voiceover-driven edits",
-      "Archival footage and research visuals",
-      "Narrative structuring and pacing",
-      "On-screen text and infographics",
-      "Polished sound design and color tone"
-    ],
-  },
-  {
-    icon: Presentation,
-    title: "Explainer & Educational Videos",
-    description: "Visually clear, engaging content that simplifies complex ideas and holds viewer attention.",
-    features: [
-      "Animated text and motion graphics",
-      "Charts, icons, and visual breakdowns",
-      "Tutorial or course-style pacing",
-      "Consistent brand alignment",
-      "Clean, professional visual flow"
-    ],
-  },
-  {
-    icon: Package,
-    title: "Product Promotional Videos",
-    description: "Cinematic product showcases for brands, startups, and e-commerce campaigns.",
-    features: [
-      "Product reveal and macro shots",
-      "Lifestyle or brand-context visuals",
-      "Text animation and motion overlays",
-      "Sound design and music syncing",
-      "Smooth transitions and logo outro"
-    ],
-  },
+  // {
+  //   icon: Youtube,
+  //   title: "YouTube Long-form Editing",
+  //   description: "Professional storytelling for creators who value pacing, retention, and visual flow.",
+  //   features: [
+  //     "Intros/outros and branding consistency",
+  //     "B-roll and stock footage integration",
+  //     "Smooth pacing and transitions",
+  //     "Color grading and sound balancing",
+  //     "Visual storytelling and thumbnail framing"
+  //   ],
+  // },
+  // {
+  //   icon: FileVideo,
+  //   title: "Documentary & Case Study Editing",
+  //   description: "In-depth storytelling for business, social, or investigative topics with a cinematic, journalistic tone.",
+  //   features: [
+  //     "Interview or voiceover-driven edits",
+  //     "Archival footage and research visuals",
+  //     "Narrative structuring and pacing",
+  //     "On-screen text and infographics",
+  //     "Polished sound design and color tone"
+  //   ],
+  // },
+  // {
+  //   icon: Presentation,
+  //   title: "Explainer & Educational Videos",
+  //   description: "Visually clear, engaging content that simplifies complex ideas and holds viewer attention.",
+  //   features: [
+  //     "Animated text and motion graphics",
+  //     "Charts, icons, and visual breakdowns",
+  //     "Tutorial or course-style pacing",
+  //     "Consistent brand alignment",
+  //     "Clean, professional visual flow"
+  //   ],
+  // },
+  // {
+  //   icon: Package,
+  //   title: "Product Promotional Videos",
+  //   description: "Cinematic product showcases for brands, startups, and e-commerce campaigns.",
+  //   features: [
+  //     "Product reveal and macro shots",
+  //     "Lifestyle or brand-context visuals",
+  //     "Text animation and motion overlays",
+  //     "Sound design and music syncing",
+  //     "Smooth transitions and logo outro"
+  //   ],
+  // },
 ];
 
 const Services = () => {
@@ -112,7 +112,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-1 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             const isVisible = visibleCards.includes(index);
